@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080e1c">
+    <title>AnsamServerAPI</title>
+    <link rel="icon" href="logo.png" type="image/png"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand-icon">A</div>
+        <div>
+            <h1>Ansam<span>ServerAPI</span></h1>
+            <p class="subtitle">MINECRAFT SERVER CONTROL PANEL</p>
+        </div>
+        <div class="connection" id="connection">
+            <span class="dot"></span> Offline
+        </div>
+    </header>
+
+    <main>
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Connect Server</h2>
+                    <p>Authenticate with your API token.</p>
+                </div>
+                <span class="icon">⌘</span>
+            </div>
+
+            <label for="token">API Token</label>
+            <input type="password" id="token"
+                   placeholder="Enter your secret token"
+                   autocomplete="off">
+
+            <button id="submit" class="primary">CONNECT</button>
+            <p class="hint">Keep your token private.</p>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span class="stat-icon">◉</span>
+                <p>ONLINE PLAYERS</p>
+                <strong id="online">—</strong>
+                <span class="muted">Connected players</span>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon green">♥</span>
+                <p>SERVER HEALTH</p>
+                <strong id="health-status">—</strong>
+                <span class="muted" id="health-updated">Waiting for connection</span>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Online Players</h2>
+                    <p>Players currently connected to your server.</p>
+                </div>
+                <span class="tag" id="player-count">0 players</span>
+            </div>
+            <div id="players" class="players-list">
+                <span class="muted">Connect to load players.</span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Server Health</h2>
+                    <p>Live response from your health API.</p>
+                </div>
+                <span class="tag">10 SEC</span>
+            </div>
+            <pre id="health-output" class="json-output">Waiting for connection...</pre>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Player Lookup</h2>
+                    <p>Inspect a player's stats and economy.</p>
+                </div>
+            </div>
+
+            <div class="search-row">
+                <input id="lookup" placeholder="Minecraft username"
+                       autocomplete="off">
+                <button id="look" class="primary">LOOK UP</button>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail"><span>Username</span><strong id="user">—</strong></div>
+                <div class="detail"><span>Rank</span><strong id="rank">—</strong></div>
+                <div class="detail"><span>Balance</span><strong id="balance">—</strong></div>
+                <div class="detail"><span>Kills</span><strong id="kills">—</strong></div>
+                <div class="detail"><span>Deaths</span><strong id="deaths">—</strong></div>
+                <div class="detail"><span>UUID</span><strong id="uuid">—</strong></div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Console</h2>
+                    <p>Latest server logs · Auto-refresh every 5 seconds</p>
+                </div>
+                <span class="live-tag"><span class="dot"></span> LIVE</span>
+            </div>
+
+            <div class="console-toolbar">
+                <span>ANSAMSERVER / LOGS</span>
+                <button id="refresh-logs" class="secondary">↻ Refresh</button>
+            </div>
+            <pre id="output" class="console-output">Waiting for connection...</pre>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Command Terminal</h2>
+                    <p>Send a command to your Minecraft server.</p>
+                </div>
+            </div>
+
+            <div class="command-row">
+                <span class="prompt">/</span>
+                <input id="input" placeholder="say Hello, Minecraft!"
+                       autocomplete="off">
+                <button id="command" class="primary">SEND</button>
+            </div>
+            <p class="hint">Enter the command without the leading slash.</p>
+            <pre id="command-result" class="command-result"></pre>
+        </section>
+    </main>
+
+    <footer>ANSAMSERVERAPI <span>·</span> SERVER MANAGEMENT</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
